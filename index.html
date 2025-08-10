@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peluquería Aloha Style</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background: #00bcd4;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #00bcd4;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      color: #00bcd4;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+    }
+    form button {
+      background: #00bcd4;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    footer {
+      background: #00bcd4;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      height: 300px;
+    }
+    .logo-placeholder {
+      width: 100%;
+      height: 150px;
+      background: url('placeholder_logo.png') center/contain no-repeat;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-placeholder"></div>
+    <h1>Aloha Style</h1>
+    <p>Peluquería en Valencia - Estilo surfero con alma mediterránea</p>
+  </header>
+
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#cita">Pedir Cita</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="servicios">
+    <h2>Servicios Aloha Style</h2>
+    <ul>
+      <li>Colores personalizados</li>
+      <li>Mechas personalizadas</li>
+      <li>Brushing</li>
+      <li>Lavado y secado</li>
+      <li>Plancha</li>
+      <li>Ondas</li>
+      <li>Recogidos</li>
+      <li>Recogidos Novia</li>
+      <li>Peinados de Fallera</li>
+      <li>Corte Mujer</li>
+      <li>Corte Caballero</li>
+      <li>Corte Infantil</li>
+      <li>Depilación labial y cejas</li>
+      <li>Maquillaje</li>
+      <li>Masajes craneales</li>
+    </ul>
+    <p>Cita previa: <strong>614 48 52 45</strong></p>
+  </section>
+
+  <section id="cita">
+    <h2>Pide tu cita</h2>
+    <form id="formCita" onsubmit="return enviarWhatsApp()">
+      <input type="text" id="nombre" placeholder="Tu nombre" required>
+      <input type="tel" id="telefono" placeholder="Teléfono" required>
+      <select id="servicio" required>
+        <option value="">Selecciona un servicio</option>
+        <option>Color personalizado</option>
+        <option>Mechas</option>
+        <option>Brushing</option>
+        <option>Lavado y secado</option>
+        <option>Plancha</option>
+        <option>Ondas</option>
+        <option>Recogido</option>
+        <option>Peinado Fallera</option>
+        <option>Corte mujer</option>
+        <option>Corte caballero</option>
+        <option>Corte infantil</option>
+        <option>Depilación</option>
+        <option>Maquillaje</option>
+        <option>Masaje craneal</option>
+      </select>
+      <input type="date" id="fecha" required>
+      <input type="time" id="hora" required>
+      <button type="submit">Enviar por WhatsApp</button>
+    </form>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Teléfono / WhatsApp: <a href="tel:614485245">614 48 52 45</a></p>
+    <p>Nos encontrarás en C/ Fontilles 31, bajo - Valencia, Nazaret</p>
+    <iframe src="https://www.google.com/maps?q=C%2F+Fontilles+31+Valencia&output=embed"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Aloha Style - Hecho con amor junto al mar</p>
+  </footer>
+
+  <script>
+    function enviarWhatsApp() {
+      const nombre = document.getElementById('nombre').value;
+      const telefono = document.getElementById('telefono').value;
+      const servicio = document.getElementById('servicio').value;
+      const fecha = document.getElementById('fecha').value;
+      const hora = document.getElementById('hora').value;
+
+      const mensaje = `Hola, soy ${nombre}. Quiero una cita para ${servicio} el día ${fecha} a las ${hora}. Mi teléfono es ${telefono}.`;
+      const url = `https://wa.me/34614485245?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+      return false;
+    }
+  </script>
+</body>
+</html>
